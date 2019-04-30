@@ -1,4 +1,4 @@
-require "rails-helper"
+require "rails_helper"
 
 RSpec.describe "songs index page", type: :feature do
   it "user can see all songs" do
@@ -11,5 +11,5 @@ RSpec.describe "songs index page", type: :feature do
     expect(page).to have_content("Play Count: #{song_1.play_count}")
     expect(page).to have_content(song_2.title)
     expect(page).to have_content("Play Count: #{song_2.play_count}")
-  end
+  end 
 end
