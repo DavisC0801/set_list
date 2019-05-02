@@ -8,6 +8,9 @@ class ArtistsController < ApplicationController
     redirect_to "/artists/#{artist.id}"
   end
 
+  def show
+  end
+
   private
 
   def artist_params
