@@ -1,6 +1,15 @@
-<h1>All Songs</h1>
-
-<% @songs.each do |song|%>
-  <h2><%= song.title %></h2>
-  <p>Play Count: <%= song.play_count %></p>
-<% end %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Set List</title>
+  </head>
+  <body>
+    <h1>All Songs</h1>
+    
+    <% @songs.each do |song|%>
+    <h2><%= song.title %></h2>
+    <p>Play Count: <%= song.play_count %></p>
+    <% end %>
+  </body>
+</html>
