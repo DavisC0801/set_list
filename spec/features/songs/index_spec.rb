@@ -16,4 +16,15 @@ RSpec.describe "songs index page", type: :feature do
     expect(page).to have_content(@song_2.title)
     expect(page).to have_content("Play Count: #{@song_2.play_count}")
   end
+
+  it "has links to song show pages" do
+    visit "/songs"
+
+    expect(page).to have_link(@song_1.title)
+
+    click_link @song_1.title
+
+    expect(current_path).to eq("/songs/#{@song_1.id}")
+    expect(page).to have_content(@song_1.title)
+  end
 end
