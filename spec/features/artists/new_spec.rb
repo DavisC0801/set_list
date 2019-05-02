@@ -8,7 +8,7 @@ describe "As a visitor" do
       fill_in "Name", with: "Pat the Bunny"
       click_on 'Create Artist'
 
-      expect(current/path).to eq("/artists/#{Artist.last.id}")
+      expect(current_path).to eq("/artists/#{Artist.last.id}")
     end
   end
 end
