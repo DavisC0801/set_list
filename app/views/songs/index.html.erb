@@ -6,9 +6,9 @@
   </head>
   <body>
     <h1>All Songs</h1>
-    
+
     <% @songs.each do |song|%>
-    <h2><%= song.title %></h2>
+    <h2><%= link_to song.title, "/songs/#{song.id}" %></h2>
     <p>Play Count: <%= song.play_count %></p>
     <% end %>
   </body>
