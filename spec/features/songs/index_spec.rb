@@ -48,5 +48,11 @@ RSpec.describe "songs index page", type: :feature do
       expect(page).to have_content("Play Count: #{@song_4.play_count}")
       expect(page).to have_content("Length: #{@song_4.length}")
     end
+
+    within("#song_#{@song_3.id}_info") do
+      click_link(@song_3.title)
+    end
+
+    expect(page.current_path).to eq("/songs/#{@song_3.id}")
   end
 end
