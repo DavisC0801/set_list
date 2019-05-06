@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :song do
-    title {"Vampries are Posers"}
-    play_count { 100 }
-    length { 456 }
+    sequence(:title) {|n| "#{n} song"}
+    sequence(:play_count) { "#{n * 5}" }
+    length(:length) { "#{n * 10}"}
     artist # aimed at factory of the same name
   end
 end
