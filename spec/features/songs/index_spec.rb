@@ -1,13 +1,20 @@
 require "rails_helper"
 
 RSpec.describe "songs index page", type: :feature do
+  # before :each do
+  #   test = Artist.create(name: "tests")
+  #   artist = Artist.create!(name: '1903')
+  #   @song_1 = test.songs.create(title: "Don't Stop Belivin'", length: 303, play_count: 123456)
+  #   @song_2 = test.songs.create(title: "Never Gonna Give You Up", length: 253, play_count: 987654321)
+  #   @song_3 = artist.songs.create(title: 'Testing', length: 90, play_count: 1)
+  #   @song_4 = artist.songs.create(title: 'Testing Redux', length: 90, play_count: 10)
+  # end
+
   before :each do
-    test = Artist.create(name: "tests")
-    artist = Artist.create!(name: '1903')
-    @song_1 = test.songs.create(title: "Don't Stop Belivin'", length: 303, play_count: 123456)
-    @song_2 = test.songs.create(title: "Never Gonna Give You Up", length: 253, play_count: 987654321)
-    @song_3 = artist.songs.create(title: 'Testing', length: 90, play_count: 1)
-    @song_4 = artist.songs.create(title: 'Testing Redux', length: 90, play_count: 10)
+    artist = create(:artist)
+    # @song = create(:song, artist: artist)
+    @song_1, @song_2, @song_3, @song_4 = create_list(:song, 4, artist: artist)
+    #can assign Ivars using this syntax
   end
 
   it "user can see all songs" do
