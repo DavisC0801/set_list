@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Set List</title>
-  </head>
-  <body>
-    <h1>All Songs</h1>
-
-    <% @songs.each do |song|%>
-    <div id="song_<%= song.id %>_info">
-      <h2><%= link_to song.title, "/songs/#{song.id}" %></h2>
-      <p>Play Count: <%= song.play_count %></p>
-      <p>Length: <%= song.length %></p>
-    </div>
-    <% end %>
-  </body>
-</html>
+<% @songs.each do |song|%>
+  <div id="song_<%= song.id %>_info">
+    <h2><%= link_to song.title, "/songs/#{song.id}" %></h2>
+    <p>Play Count: <%= song.play_count %></p>
+    <p>Length: <%= song.length %></p>
+  </div>
+<% end %>
