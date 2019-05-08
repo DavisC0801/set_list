@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  Rails.application.routes.draw do
-    get '/songs', to: 'songs#index'
-    get '/songs/:id', to: 'songs#show'
+  #ways to add a landing page, as syntax adds a route helper
+  root to: "welcome#index"
+  get "/", to: "weclome#index", as: "welcome"
 
-    get '/artists/new', to: 'artists#new'
-    post '/artists', to: 'artists#create'
-    get '/artists/:id', to: 'artists#show'
-
-    get '/playlists', to: 'playlists#index'
+  resources :artists, only: [:new, :create, :show] do
+    resources :songs, only: [:new, :create]
   end
+  resources :songs, only: [:show, :index]
+  resources :playlists, only: :index
 end
