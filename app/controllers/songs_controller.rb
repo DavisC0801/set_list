@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   def index
+    session[:secret] = "this is a secret!"
     @songs = Song.all
   end
 
