@@ -10,7 +10,6 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    binding.pry
     @artist = Artist.find(params[:id])
     session[:secret] = "This time for real, though."
   end
