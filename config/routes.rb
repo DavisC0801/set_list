@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
   resources :songs, only: [:show, :index]
   resources :playlists, only: :index
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
 end
