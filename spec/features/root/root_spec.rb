@@ -18,5 +18,25 @@ RSpec.describe "As a visitor" do
 
       expect(page).to have_content("Welcome #{new_user.username}!")
     end
+
+    it "existing user can log in" do
+      user = User.create(username: "funbucket13", password: "test")
+
+      visit root_path
+
+      click_on "I already have an account"
+
+      expect(current_path).to eq(login_path)
+
+      fill_in "Username", with: user.username
+      fill_in "Password", with: user.password
+
+      click_on "Log In"
+
+      expect(current_path).to eq(user_path(user))
+
+      expect(page).to have_content("Welcome, #{user.username}")
+      expect(page).to have_link("Log Out")
+    end
   end
 end
