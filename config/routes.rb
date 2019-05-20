@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "welcome#index"
   # get "/", to: "weclome#index", as: "welcome"
 
+  get "/login", to: "sessions#new"
+
   resources :artists, only: [:new, :create, :show] do
     resources :songs, only: [:new, :create]
   end
