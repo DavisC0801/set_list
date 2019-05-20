@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # get "/", to: "weclome#index", as: "welcome"
 
   get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
 
   resources :artists, only: [:new, :create, :show] do
     resources :songs, only: [:new, :create]
