@@ -13,4 +13,12 @@ Rails.application.routes.draw do
   resources :songs, only: [:show, :index]
   resources :playlists, only: :index
   resources :users, only: [:new, :create, :show]
+
+  # scope :admin, module: :admin, as: :admin do
+  #   resources :categories, only: :index
+  # end
+
+  namespace :admin do
+    resources :categories, only: :index
+  end
 end
