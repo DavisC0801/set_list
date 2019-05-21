@@ -25,4 +25,13 @@ RSpec.describe "User visits categories index page" do
       expect(page).to have_content("The page you were looking for doesn't exist")
     end
   end
+
+  context "as a visitor" do
+    it "does not allow visitor to see admin categories" do
+      visit admin_categories_path
+
+      expect(page).to_not have_content("Admin Categories")
+      expect(page).to have_content("The page you were looking for doesn't exist")
+    end
+  end
 end
