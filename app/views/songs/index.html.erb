@@ -6,5 +6,6 @@
     <% if current_admin? %>
       <%= button_to "delete", admin_song(song), method: :delete %>
     <% end %>
+    <%= button_to "Add Song", carts_path(song_id: song.id) %>
   </div>
 <% end %>
