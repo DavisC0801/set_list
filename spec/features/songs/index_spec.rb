@@ -20,11 +20,11 @@ RSpec.describe "songs index page", type: :feature do
   it "user can see all songs" do
     visit "/songs"
 
-    within("#song_#{@song_1.id}_info") do
+    within("#song-#{@song_1.id}-info") do
       expect(page).to have_content(@song_1.title)
       expect(page).to have_content("Play Count: #{@song_1.play_count}")
     end
-    within("#song_#{@song_2.id}_info") do
+    within("#song-#{@song_2.id}-info") do
       expect(page).to have_content(@song_2.title)
       expect(page).to have_content("Play Count: #{@song_2.play_count}")
     end
@@ -44,19 +44,19 @@ RSpec.describe "songs index page", type: :feature do
   it 'shows song information grouped by length' do
     visit "/songs"
 
-    within("#song_#{@song_3.id}_info") do
+    within("#song-#{@song_3.id}-info") do
       expect(page).to have_link(@song_3.title)
       expect(page).to have_content("Play Count: #{@song_3.play_count}")
       expect(page).to have_content("Length: #{@song_3.length}")
     end
 
-    within("#song_#{@song_4.id}_info") do
+    within("#song-#{@song_4.id}-info") do
       expect(page).to have_link(@song_4.title)
       expect(page).to have_content("Play Count: #{@song_4.play_count}")
       expect(page).to have_content("Length: #{@song_4.length}")
     end
 
-    within("#song_#{@song_3.id}_info") do
+    within("#song-#{@song_3.id}-info") do
       click_link(@song_3.title)
     end
 
