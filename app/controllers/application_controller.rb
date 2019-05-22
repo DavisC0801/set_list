@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  include ActionView::Helpers::TextHelper
+
   helper_method :current_user, :current_admin?
 
 private
