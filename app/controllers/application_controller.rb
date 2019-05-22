@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   include ActionView::Helpers::TextHelper
 
-  helper_method :current_user, :current_admin?
+  helper_method :current_user, :current_admin?, :cart
 
 private
   def current_user
@@ -12,5 +12,9 @@ private
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def cart
+    @cart ||= Cart.new(session[:cart])
   end
 end

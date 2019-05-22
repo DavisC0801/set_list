@@ -1,10 +1,9 @@
 class CartsController < ApplicationController
   def create
     song = Song.find(params[:song_id])
-    @cart = Cart.new(session[:cart])
-    @cart.add_song(song.id)
-    session[:cart] = @cart.contents
-    quantity = @cart.count_of(song.id)
+    cart.add_song(song.id)
+    session[:cart] = cart.contents
+    quantity = cart.count_of(song.id)
     flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{song.title} in your cart."
     redirect_to songs_path
   end

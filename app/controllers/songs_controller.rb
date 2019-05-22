@@ -1,6 +1,5 @@
 class SongsController < ApplicationController
   def index
-    @cart = Cart.new(session[:cart])
     @songs = Song.all
   end
 
