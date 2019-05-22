@@ -37,5 +37,23 @@ RSpec.describe "As a user" do
 
       expect(page).to have_content("You now have 2 copies of #{@song.title} in your cart.")
     end
+
+    it "shows a count of songs in cart" do
+      visit songs_path
+
+      expect(page).to have_content("Cart: 0")
+
+      within("#song-#{@song.id}-info") do
+        click_button "Add Song"
+      end
+
+      expect(page).to have_content("Cart: 1")
+
+      within("#song-#{@song_2.id}-info") do
+        click_button "Add Song"
+      end
+
+      expect(page).to have_content("Cart: 2")
+    end
   end
 end
